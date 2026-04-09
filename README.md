@@ -20,7 +20,7 @@ An interactive quiz game for kids to learn the flags and capitals of 120 countri
 
 ## Live game
 
-👉 **[Play now](https://your-username.github.io/flags-game)**
+👉 **[Play now](https://pshykhaliiev.github.io/flags-game)**
 *(replace with your GitHub Pages URL after deploying)*
 
 ## Deploy to GitHub Pages
@@ -29,7 +29,7 @@ An interactive quiz game for kids to learn the flags and capitals of 120 countri
 2. Go to **Settings → Pages**
 3. Set source to `main` branch, `/ (root)` folder
 4. Click **Save** — your game will be live in ~1 minute at:
-   `https://your-username.github.io/flags-game`
+   `https://pshykhaliiev.github.io/flags-game`
 
 ## Tech stack
 

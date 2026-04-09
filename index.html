@@ -13,7 +13,6 @@
       --ocean-light: #dbeafe;
       --ocean-dark: #1d4ed8;
       --sun: #f59e0b;
-      --sun-light: #fef3c7;
       --grass: #16a34a;
       --grass-light: #dcfce7;
       --coral: #ef4444;
@@ -28,7 +27,7 @@
       --radius: 16px;
       --radius-sm: 10px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito', sans-serif;
       background: var(--sky);
@@ -38,228 +37,76 @@
       background-image: radial-gradient(circle at 20% 20%, #c7e8ff 0%, transparent 50%),
                         radial-gradient(circle at 80% 80%, #fde8c7 0%, transparent 50%);
     }
-
     .screen { display: none; }
     .screen.active { display: block; }
-
-    /* ── HEADER ── */
-    .app-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .app-logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 32px;
-      color: var(--ocean);
-      letter-spacing: 0.5px;
-    }
+    .app-header { text-align: center; margin-bottom: 2rem; }
+    .app-logo { font-family: 'Fredoka One', cursive; font-size: 32px; color: var(--ocean); letter-spacing: 0.5px; }
     .app-logo span { color: var(--sun); }
-
-    /* ── CARDS ── */
-    .card {
-      background: #fff;
-      border-radius: var(--radius);
-      border: 2px solid var(--border);
-      padding: 2rem 1.5rem;
-      max-width: 520px;
-      margin: 0 auto 1.25rem;
-      text-align: center;
-    }
-
-    /* ── NAME SCREEN ── */
+    .card { background: #fff; border-radius: var(--radius); border: 2px solid var(--border); padding: 2rem 1.5rem; max-width: 520px; margin: 0 auto 1.25rem; text-align: center; }
     .welcome-emoji { font-size: 80px; line-height: 1; margin-bottom: 1rem; display: block; }
-    .welcome-title {
-      font-family: 'Fredoka One', cursive;
-      font-size: 28px;
-      color: var(--ocean);
-      margin-bottom: 0.5rem;
-    }
-    .welcome-sub { font-size: 15px; color: var(--muted); margin-bottom: 2rem; line-height: 1.5; }
-    .name-label { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; text-align: left; max-width: 340px; margin-left: auto; margin-right: auto; }
+    .welcome-title { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--ocean); margin-bottom: 0.5rem; }
+    .welcome-sub { font-size: 15px; color: var(--muted); margin-bottom: 2rem; line-height: 1.5; font-weight: 600; }
+    .name-label { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; text-align: left; max-width: 340px; margin-left: auto; margin-right: auto; display: block; }
     .name-input {
-      width: 100%; max-width: 340px;
-      padding: 14px 18px;
-      font-size: 17px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      border-radius: var(--radius-sm);
-      border: 2px solid #cbd5e1;
-      background: var(--sand);
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-      outline: none;
-      text-align: center;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%; max-width: 340px; padding: 14px 18px; font-size: 17px;
+      font-family: 'Nunito', sans-serif; font-weight: 600; border-radius: var(--radius-sm);
+      border: 2px solid #cbd5e1; background: var(--sand); color: var(--ink);
+      margin-bottom: 1.25rem; outline: none; text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s; display: block; margin-left: auto; margin-right: auto;
     }
     .name-input:focus { border-color: var(--ocean); box-shadow: 0 0 0 4px var(--ocean-light); }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 38px;
-      font-size: 16px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      letter-spacing: 0.3px;
-    }
+    .btn { display: inline-block; padding: 13px 38px; font-size: 16px; font-family: 'Nunito', sans-serif; font-weight: 800; border-radius: 50px; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.3px; }
     .btn:active { transform: scale(0.97); }
-    .btn-primary {
-      background: var(--ocean);
-      color: #fff;
-      box-shadow: 0 4px 0 var(--ocean-dark);
-    }
+    .btn-primary { background: var(--ocean); color: #fff; box-shadow: 0 4px 0 var(--ocean-dark); }
     .btn-primary:hover { box-shadow: 0 6px 0 var(--ocean-dark); transform: translateY(-1px); }
     .btn-primary:disabled { background: #94a3b8; box-shadow: 0 4px 0 #64748b; cursor: default; transform: none; }
-    .btn-secondary {
-      background: #fff;
-      color: var(--ink);
-      border: 2px solid var(--border);
-      box-shadow: 0 3px 0 rgba(0,0,0,0.1);
-    }
+    .btn-secondary { background: #fff; color: var(--ink); border: 2px solid var(--border); box-shadow: 0 3px 0 rgba(0,0,0,0.1); }
     .btn-secondary:hover { box-shadow: 0 5px 0 rgba(0,0,0,0.1); transform: translateY(-1px); }
-
-    /* ── QUIZ SCREEN ── */
-    .quiz-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 520px;
-      margin: 0 auto 1.25rem;
-      gap: 12px;
-    }
-    .player-pill {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ocean);
-    }
+    .quiz-top { display: flex; align-items: center; justify-content: space-between; max-width: 520px; margin: 0 auto 1.25rem; gap: 12px; }
+    .player-pill { background: #fff; border: 2px solid var(--border); border-radius: 50px; padding: 6px 14px; font-size: 13px; font-weight: 700; color: var(--ocean); }
     .score-pills { display: flex; gap: 8px; }
-    .score-pill {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-      text-align: center;
-    }
+    .score-pill { background: #fff; border: 2px solid var(--border); border-radius: 50px; padding: 6px 14px; font-size: 13px; font-weight: 700; color: var(--ink); text-align: center; }
     .score-pill span { display: block; font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-
-    .progress-bar-wrap {
-      max-width: 520px;
-      margin: 0 auto 1.25rem;
-      background: rgba(255,255,255,0.6);
-      border-radius: 50px;
-      height: 8px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--ocean);
-      border-radius: 50px;
-      transition: width 0.4s ease;
-    }
-
-    .mode-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 1.25rem;
-    }
-    .mode-btn {
-      padding: 7px 16px;
-      font-size: 13px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      border-radius: 50px;
-      border: 2px solid var(--border);
-      background: #fff;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
+    .progress-bar-wrap { max-width: 520px; margin: 0 auto 1.25rem; background: rgba(255,255,255,0.6); border-radius: 50px; height: 8px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: var(--ocean); border-radius: 50px; transition: width 0.4s ease; }
+    .mode-toggle { display: flex; justify-content: center; gap: 8px; margin-bottom: 1.25rem; }
+    .mode-btn { padding: 7px 16px; font-size: 13px; font-family: 'Nunito', sans-serif; font-weight: 700; border-radius: 50px; border: 2px solid var(--border); background: #fff; color: var(--muted); cursor: pointer; transition: all 0.15s; }
     .mode-btn.active { background: var(--ocean); color: #fff; border-color: var(--ocean); }
-
     .flag-display { font-size: 96px; line-height: 1; margin-bottom: 1rem; display: block; }
     .country-name { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--ocean); margin-bottom: 0.5rem; }
     .question-text { font-size: 15px; color: var(--muted); font-weight: 600; margin-bottom: 1.5rem; }
-
+    .q-num { font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
     .options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .opt-btn {
-      background: var(--sand);
-      border: 2px solid #e2e8f0;
-      border-radius: var(--radius-sm);
-      padding: 16px 12px;
-      font-size: 14px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      color: var(--ink);
-      cursor: pointer;
-      transition: all 0.15s;
-      line-height: 1.3;
-    }
+    .opt-btn { background: var(--sand); border: 2px solid #e2e8f0; border-radius: var(--radius-sm); padding: 16px 12px; font-size: 14px; font-family: 'Nunito', sans-serif; font-weight: 700; color: var(--ink); cursor: pointer; transition: all 0.15s; line-height: 1.3; }
     .opt-btn:hover:not(:disabled) { background: var(--ocean-light); border-color: var(--ocean); color: var(--ocean); transform: translateY(-2px); }
     .opt-btn.correct { background: var(--grass-light); border-color: var(--grass); color: #14532d; }
     .opt-btn.wrong   { background: var(--coral-light); border-color: var(--coral); color: #7f1d1d; }
     .opt-btn:disabled { cursor: default; transform: none; }
-
     .feedback-wrap { min-height: 32px; margin: 1rem 0 0.5rem; }
-    .feedback {
-      display: inline-block;
-      padding: 6px 18px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 700;
-    }
+    .feedback { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 14px; font-weight: 700; }
     .feedback.ok { background: var(--grass-light); color: #14532d; }
     .feedback.no { background: var(--coral-light); color: #7f1d1d; }
-
     .next-btn-wrap { margin-top: 0.75rem; }
-
-    /* ── END SCREEN ── */
     .end-emoji { font-size: 80px; line-height: 1; margin-bottom: 1rem; display: block; }
     .end-title { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--ocean); margin-bottom: 0.5rem; }
-    .end-sub { font-size: 15px; color: var(--muted); font-weight: 600; margin-bottom: 0; }
-
-    /* ── LEADERBOARD ── */
+    .end-sub { font-size: 15px; color: var(--muted); font-weight: 600; }
     .lb-section { max-width: 520px; margin: 0 auto; }
     .lb-header { text-align: center; margin-bottom: 1rem; }
     .lb-title { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--ink); margin-bottom: 0.25rem; }
     .lb-sub { font-size: 13px; color: var(--muted); font-weight: 600; }
-
     .lb-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .lb-table th { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 10px; border-bottom: 2px solid #f1f5f9; text-align: left; }
     .lb-table td { padding: 12px 10px; border-bottom: 1px solid #f1f5f9; color: var(--ink); font-weight: 600; vertical-align: middle; }
     .lb-table tr:last-child td { border-bottom: none; }
     .lb-table tr.highlight td { background: var(--ocean-light); color: var(--ocean-dark); font-weight: 700; }
-
-    .rank-badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px; border-radius: 50%;
-      font-size: 12px; font-weight: 800;
-    }
+    .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 800; }
     .rank-1 { background: #fef3c7; color: #92400e; border: 2px solid var(--gold); }
     .rank-2 { background: #f1f5f9; color: #475569; border: 2px solid var(--silver); }
     .rank-3 { background: #fef3c7; color: #7c2d12; border: 2px solid var(--bronze); }
     .rank-n { background: #f8fafc; color: var(--muted); border: 2px solid #e2e8f0; }
-
-    .lb-loading { text-align: center; padding: 2rem; color: var(--muted); font-weight: 600; font-size: 14px; }
-    .lb-error { text-align: center; padding: 1rem; color: var(--coral); font-weight: 600; font-size: 13px; }
-
+    .lb-status { text-align: center; padding: 2rem 1rem; font-weight: 600; font-size: 14px; color: var(--muted); }
+    .lb-status.error { color: var(--coral); }
     .btn-row { display: flex; justify-content: center; gap: 10px; margin-top: 1.25rem; flex-wrap: wrap; }
-
-    .q-num { font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
-
     @media (max-width: 420px) {
       .options { grid-template-columns: 1fr; }
       .flag-display { font-size: 72px; }
@@ -269,14 +116,14 @@
 </head>
 <body>
 
-  <!-- SCREEN 1: Name entry -->
+  <!-- SCREEN 1: Name -->
   <div class="screen active" id="screen-name">
     <div class="app-header"><div class="app-logo">Flags <span>&</span> Capitals</div></div>
     <div class="card">
       <span class="welcome-emoji">🌍</span>
       <div class="welcome-title">Welcome, Explorer!</div>
       <div class="welcome-sub">Test your knowledge of flags and capitals<br>from 120 countries around the world!</div>
-      <p class="name-label">What is your name?</p>
+      <label class="name-label">What is your name?</label>
       <input class="name-input" id="name-input" type="text" placeholder="Your name..." maxlength="20" autocomplete="off" />
       <button class="btn btn-primary" id="start-btn" onclick="beginGame()" disabled>Let's Play! 🚀</button>
     </div>
@@ -310,7 +157,7 @@
         <div class="lb-sub">Best scores from all players worldwide</div>
       </div>
       <div class="card" style="padding:1rem 1.25rem;" id="lb-content">
-        <div class="lb-loading">Loading scores...</div>
+        <div class="lb-status">Loading scores...</div>
       </div>
       <div class="btn-row">
         <button class="btn btn-primary" onclick="playAgain()">Play Again 🎮</button>
@@ -320,373 +167,333 @@
   </div>
 
 <script>
-const TOTAL = 20;
-const LB_KEY = 'flags_leaderboard_v1';
+  const SUPABASE_URL = 'https://kkkavyfjqfwtrthahakh.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtra2F2eWZqcWZ3dHJ0aGFoYWtoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTU0NTUsImV4cCI6MjA5MTMzMTQ1NX0.iufFon815Q1ASzQlQ7yoVfKDWPhojPcp0Q7rVtNXinY';
+  const HEADERS = {
+    'Content-Type': 'application/json',
+    'apikey': SUPABASE_KEY,
+    'Authorization': 'Bearer ' + SUPABASE_KEY,
+    'Prefer': 'return=representation'
+  };
+  const TOTAL = 20;
 
-const data = [
-  // Europe
-  { flag:"🇫🇷", country:"France", capital:"Paris" },
-  { flag:"🇩🇪", country:"Germany", capital:"Berlin" },
-  { flag:"🇮🇹", country:"Italy", capital:"Rome" },
-  { flag:"🇪🇸", country:"Spain", capital:"Madrid" },
-  { flag:"🇵🇹", country:"Portugal", capital:"Lisbon" },
-  { flag:"🇬🇧", country:"United Kingdom", capital:"London" },
-  { flag:"🇳🇱", country:"Netherlands", capital:"Amsterdam" },
-  { flag:"🇧🇪", country:"Belgium", capital:"Brussels" },
-  { flag:"🇨🇭", country:"Switzerland", capital:"Bern" },
-  { flag:"🇦🇹", country:"Austria", capital:"Vienna" },
-  { flag:"🇸🇪", country:"Sweden", capital:"Stockholm" },
-  { flag:"🇳🇴", country:"Norway", capital:"Oslo" },
-  { flag:"🇩🇰", country:"Denmark", capital:"Copenhagen" },
-  { flag:"🇫🇮", country:"Finland", capital:"Helsinki" },
-  { flag:"🇮🇸", country:"Iceland", capital:"Reykjavik" },
-  { flag:"🇮🇪", country:"Ireland", capital:"Dublin" },
-  { flag:"🇬🇷", country:"Greece", capital:"Athens" },
-  { flag:"🇵🇱", country:"Poland", capital:"Warsaw" },
-  { flag:"🇨🇿", country:"Czech Republic", capital:"Prague" },
-  { flag:"🇸🇰", country:"Slovakia", capital:"Bratislava" },
-  { flag:"🇭🇺", country:"Hungary", capital:"Budapest" },
-  { flag:"🇷🇴", country:"Romania", capital:"Bucharest" },
-  { flag:"🇧🇬", country:"Bulgaria", capital:"Sofia" },
-  { flag:"🇭🇷", country:"Croatia", capital:"Zagreb" },
-  { flag:"🇸🇮", country:"Slovenia", capital:"Ljubljana" },
-  { flag:"🇷🇸", country:"Serbia", capital:"Belgrade" },
-  { flag:"🇺🇦", country:"Ukraine", capital:"Kyiv" },
-  { flag:"🇷🇺", country:"Russia", capital:"Moscow" },
-  { flag:"🇧🇾", country:"Belarus", capital:"Minsk" },
-  { flag:"🇱🇹", country:"Lithuania", capital:"Vilnius" },
-  { flag:"🇱🇻", country:"Latvia", capital:"Riga" },
-  { flag:"🇪🇪", country:"Estonia", capital:"Tallinn" },
-  { flag:"🇲🇩", country:"Moldova", capital:"Chișinău" },
-  { flag:"🇦🇱", country:"Albania", capital:"Tirana" },
-  { flag:"🇲🇰", country:"North Macedonia", capital:"Skopje" },
-  { flag:"🇲🇪", country:"Montenegro", capital:"Podgorica" },
-  { flag:"🇱🇺", country:"Luxembourg", capital:"Luxembourg City" },
-  { flag:"🇲🇹", country:"Malta", capital:"Valletta" },
-  { flag:"🇨🇾", country:"Cyprus", capital:"Nicosia" },
+  const data = [
+    { flag:"🇫🇷", country:"France", capital:"Paris" },
+    { flag:"🇩🇪", country:"Germany", capital:"Berlin" },
+    { flag:"🇮🇹", country:"Italy", capital:"Rome" },
+    { flag:"🇪🇸", country:"Spain", capital:"Madrid" },
+    { flag:"🇵🇹", country:"Portugal", capital:"Lisbon" },
+    { flag:"🇬🇧", country:"United Kingdom", capital:"London" },
+    { flag:"🇳🇱", country:"Netherlands", capital:"Amsterdam" },
+    { flag:"🇧🇪", country:"Belgium", capital:"Brussels" },
+    { flag:"🇨🇭", country:"Switzerland", capital:"Bern" },
+    { flag:"🇦🇹", country:"Austria", capital:"Vienna" },
+    { flag:"🇸🇪", country:"Sweden", capital:"Stockholm" },
+    { flag:"🇳🇴", country:"Norway", capital:"Oslo" },
+    { flag:"🇩🇰", country:"Denmark", capital:"Copenhagen" },
+    { flag:"🇫🇮", country:"Finland", capital:"Helsinki" },
+    { flag:"🇮🇸", country:"Iceland", capital:"Reykjavik" },
+    { flag:"🇮🇪", country:"Ireland", capital:"Dublin" },
+    { flag:"🇬🇷", country:"Greece", capital:"Athens" },
+    { flag:"🇵🇱", country:"Poland", capital:"Warsaw" },
+    { flag:"🇨🇿", country:"Czech Republic", capital:"Prague" },
+    { flag:"🇸🇰", country:"Slovakia", capital:"Bratislava" },
+    { flag:"🇭🇺", country:"Hungary", capital:"Budapest" },
+    { flag:"🇷🇴", country:"Romania", capital:"Bucharest" },
+    { flag:"🇧🇬", country:"Bulgaria", capital:"Sofia" },
+    { flag:"🇭🇷", country:"Croatia", capital:"Zagreb" },
+    { flag:"🇸🇮", country:"Slovenia", capital:"Ljubljana" },
+    { flag:"🇷🇸", country:"Serbia", capital:"Belgrade" },
+    { flag:"🇺🇦", country:"Ukraine", capital:"Kyiv" },
+    { flag:"🇷🇺", country:"Russia", capital:"Moscow" },
+    { flag:"🇧🇾", country:"Belarus", capital:"Minsk" },
+    { flag:"🇱🇹", country:"Lithuania", capital:"Vilnius" },
+    { flag:"🇱🇻", country:"Latvia", capital:"Riga" },
+    { flag:"🇪🇪", country:"Estonia", capital:"Tallinn" },
+    { flag:"🇲🇩", country:"Moldova", capital:"Chișinău" },
+    { flag:"🇦🇱", country:"Albania", capital:"Tirana" },
+    { flag:"🇲🇰", country:"North Macedonia", capital:"Skopje" },
+    { flag:"🇲🇪", country:"Montenegro", capital:"Podgorica" },
+    { flag:"🇱🇺", country:"Luxembourg", capital:"Luxembourg City" },
+    { flag:"🇲🇹", country:"Malta", capital:"Valletta" },
+    { flag:"🇨🇾", country:"Cyprus", capital:"Nicosia" },
+    { flag:"🇺🇸", country:"United States", capital:"Washington D.C." },
+    { flag:"🇨🇦", country:"Canada", capital:"Ottawa" },
+    { flag:"🇲🇽", country:"Mexico", capital:"Mexico City" },
+    { flag:"🇧🇷", country:"Brazil", capital:"Brasília" },
+    { flag:"🇦🇷", country:"Argentina", capital:"Buenos Aires" },
+    { flag:"🇨🇴", country:"Colombia", capital:"Bogotá" },
+    { flag:"🇵🇪", country:"Peru", capital:"Lima" },
+    { flag:"🇻🇪", country:"Venezuela", capital:"Caracas" },
+    { flag:"🇨🇱", country:"Chile", capital:"Santiago" },
+    { flag:"🇧🇴", country:"Bolivia", capital:"Sucre" },
+    { flag:"🇵🇾", country:"Paraguay", capital:"Asunción" },
+    { flag:"🇺🇾", country:"Uruguay", capital:"Montevideo" },
+    { flag:"🇪🇨", country:"Ecuador", capital:"Quito" },
+    { flag:"🇬🇾", country:"Guyana", capital:"Georgetown" },
+    { flag:"🇸🇷", country:"Suriname", capital:"Paramaribo" },
+    { flag:"🇨🇺", country:"Cuba", capital:"Havana" },
+    { flag:"🇯🇲", country:"Jamaica", capital:"Kingston" },
+    { flag:"🇭🇹", country:"Haiti", capital:"Port-au-Prince" },
+    { flag:"🇩🇴", country:"Dominican Republic", capital:"Santo Domingo" },
+    { flag:"🇬🇹", country:"Guatemala", capital:"Guatemala City" },
+    { flag:"🇭🇳", country:"Honduras", capital:"Tegucigalpa" },
+    { flag:"🇸🇻", country:"El Salvador", capital:"San Salvador" },
+    { flag:"🇳🇮", country:"Nicaragua", capital:"Managua" },
+    { flag:"🇨🇷", country:"Costa Rica", capital:"San José" },
+    { flag:"🇵🇦", country:"Panama", capital:"Panama City" },
+    { flag:"🇯🇵", country:"Japan", capital:"Tokyo" },
+    { flag:"🇨🇳", country:"China", capital:"Beijing" },
+    { flag:"🇰🇷", country:"South Korea", capital:"Seoul" },
+    { flag:"🇮🇳", country:"India", capital:"New Delhi" },
+    { flag:"🇵🇰", country:"Pakistan", capital:"Islamabad" },
+    { flag:"🇧🇩", country:"Bangladesh", capital:"Dhaka" },
+    { flag:"🇳🇵", country:"Nepal", capital:"Kathmandu" },
+    { flag:"🇱🇰", country:"Sri Lanka", capital:"Sri Jayawardenepura Kotte" },
+    { flag:"🇲🇻", country:"Maldives", capital:"Malé" },
+    { flag:"🇧🇹", country:"Bhutan", capital:"Thimphu" },
+    { flag:"🇲🇲", country:"Myanmar", capital:"Naypyidaw" },
+    { flag:"🇹🇭", country:"Thailand", capital:"Bangkok" },
+    { flag:"🇻🇳", country:"Vietnam", capital:"Hanoi" },
+    { flag:"🇰🇭", country:"Cambodia", capital:"Phnom Penh" },
+    { flag:"🇱🇦", country:"Laos", capital:"Vientiane" },
+    { flag:"🇲🇾", country:"Malaysia", capital:"Kuala Lumpur" },
+    { flag:"🇸🇬", country:"Singapore", capital:"Singapore" },
+    { flag:"🇵🇭", country:"Philippines", capital:"Manila" },
+    { flag:"🇮🇩", country:"Indonesia", capital:"Jakarta" },
+    { flag:"🇧🇳", country:"Brunei", capital:"Bandar Seri Begawan" },
+    { flag:"🇰🇿", country:"Kazakhstan", capital:"Astana" },
+    { flag:"🇺🇿", country:"Uzbekistan", capital:"Tashkent" },
+    { flag:"🇹🇲", country:"Turkmenistan", capital:"Ashgabat" },
+    { flag:"🇹🇯", country:"Tajikistan", capital:"Dushanbe" },
+    { flag:"🇰🇬", country:"Kyrgyzstan", capital:"Bishkek" },
+    { flag:"🇦🇿", country:"Azerbaijan", capital:"Baku" },
+    { flag:"🇦🇲", country:"Armenia", capital:"Yerevan" },
+    { flag:"🇬🇪", country:"Georgia", capital:"Tbilisi" },
+    { flag:"🇹🇷", country:"Turkey", capital:"Ankara" },
+    { flag:"🇮🇷", country:"Iran", capital:"Tehran" },
+    { flag:"🇮🇶", country:"Iraq", capital:"Baghdad" },
+    { flag:"🇸🇦", country:"Saudi Arabia", capital:"Riyadh" },
+    { flag:"🇦🇪", country:"United Arab Emirates", capital:"Abu Dhabi" },
+    { flag:"🇶🇦", country:"Qatar", capital:"Doha" },
+    { flag:"🇰🇼", country:"Kuwait", capital:"Kuwait City" },
+    { flag:"🇧🇭", country:"Bahrain", capital:"Manama" },
+    { flag:"🇴🇲", country:"Oman", capital:"Muscat" },
+    { flag:"🇾🇪", country:"Yemen", capital:"Sana'a" },
+    { flag:"🇯🇴", country:"Jordan", capital:"Amman" },
+    { flag:"🇱🇧", country:"Lebanon", capital:"Beirut" },
+    { flag:"🇮🇱", country:"Israel", capital:"Jerusalem" },
+    { flag:"🇦🇫", country:"Afghanistan", capital:"Kabul" },
+    { flag:"🇲🇳", country:"Mongolia", capital:"Ulaanbaatar" },
+    { flag:"🇳🇬", country:"Nigeria", capital:"Abuja" },
+    { flag:"🇪🇬", country:"Egypt", capital:"Cairo" },
+    { flag:"🇿🇦", country:"South Africa", capital:"Pretoria" },
+    { flag:"🇰🇪", country:"Kenya", capital:"Nairobi" },
+    { flag:"🇪🇹", country:"Ethiopia", capital:"Addis Ababa" },
+    { flag:"🇹🇿", country:"Tanzania", capital:"Dodoma" },
+    { flag:"🇺🇬", country:"Uganda", capital:"Kampala" },
+    { flag:"🇬🇭", country:"Ghana", capital:"Accra" },
+    { flag:"🇨🇮", country:"Ivory Coast", capital:"Yamoussoukro" },
+    { flag:"🇸🇳", country:"Senegal", capital:"Dakar" },
+    { flag:"🇲🇦", country:"Morocco", capital:"Rabat" },
+    { flag:"🇹🇳", country:"Tunisia", capital:"Tunis" },
+    { flag:"🇩🇿", country:"Algeria", capital:"Algiers" },
+    { flag:"🇱🇾", country:"Libya", capital:"Tripoli" },
+    { flag:"🇸🇩", country:"Sudan", capital:"Khartoum" },
+    { flag:"🇲🇿", country:"Mozambique", capital:"Maputo" },
+    { flag:"🇿🇲", country:"Zambia", capital:"Lusaka" },
+    { flag:"🇿🇼", country:"Zimbabwe", capital:"Harare" },
+    { flag:"🇦🇴", country:"Angola", capital:"Luanda" },
+    { flag:"🇨🇲", country:"Cameroon", capital:"Yaoundé" },
+    { flag:"🇷🇼", country:"Rwanda", capital:"Kigali" },
+    { flag:"🇦🇺", country:"Australia", capital:"Canberra" },
+    { flag:"🇳🇿", country:"New Zealand", capital:"Wellington" },
+    { flag:"🇫🇯", country:"Fiji", capital:"Suva" },
+    { flag:"🇵🇬", country:"Papua New Guinea", capital:"Port Moresby" },
+  ];
 
-  // Americas
-  { flag:"🇺🇸", country:"United States", capital:"Washington D.C." },
-  { flag:"🇨🇦", country:"Canada", capital:"Ottawa" },
-  { flag:"🇲🇽", country:"Mexico", capital:"Mexico City" },
-  { flag:"🇧🇷", country:"Brazil", capital:"Brasília" },
-  { flag:"🇦🇷", country:"Argentina", capital:"Buenos Aires" },
-  { flag:"🇨🇴", country:"Colombia", capital:"Bogotá" },
-  { flag:"🇵🇪", country:"Peru", capital:"Lima" },
-  { flag:"🇻🇪", country:"Venezuela", capital:"Caracas" },
-  { flag:"🇨🇱", country:"Chile", capital:"Santiago" },
-  { flag:"🇧🇴", country:"Bolivia", capital:"Sucre" },
-  { flag:"🇵🇾", country:"Paraguay", capital:"Asunción" },
-  { flag:"🇺🇾", country:"Uruguay", capital:"Montevideo" },
-  { flag:"🇪🇨", country:"Ecuador", capital:"Quito" },
-  { flag:"🇬🇾", country:"Guyana", capital:"Georgetown" },
-  { flag:"🇸🇷", country:"Suriname", capital:"Paramaribo" },
-  { flag:"🇨🇺", country:"Cuba", capital:"Havana" },
-  { flag:"🇯🇲", country:"Jamaica", capital:"Kingston" },
-  { flag:"🇭🇹", country:"Haiti", capital:"Port-au-Prince" },
-  { flag:"🇩🇴", country:"Dominican Republic", capital:"Santo Domingo" },
-  { flag:"🇬🇹", country:"Guatemala", capital:"Guatemala City" },
-  { flag:"🇭🇳", country:"Honduras", capital:"Tegucigalpa" },
-  { flag:"🇸🇻", country:"El Salvador", capital:"San Salvador" },
-  { flag:"🇳🇮", country:"Nicaragua", capital:"Managua" },
-  { flag:"🇨🇷", country:"Costa Rica", capital:"San José" },
-  { flag:"🇵🇦", country:"Panama", capital:"Panama City" },
+  let playerName = '', mode = 'capital';
+  let queue = [], current = null;
+  let score = 0, qIndex = 0, answered = false;
 
-  // Asia
-  { flag:"🇯🇵", country:"Japan", capital:"Tokyo" },
-  { flag:"🇨🇳", country:"China", capital:"Beijing" },
-  { flag:"🇰🇷", country:"South Korea", capital:"Seoul" },
-  { flag:"🇮🇳", country:"India", capital:"New Delhi" },
-  { flag:"🇵🇰", country:"Pakistan", capital:"Islamabad" },
-  { flag:"🇧🇩", country:"Bangladesh", capital:"Dhaka" },
-  { flag:"🇳🇵", country:"Nepal", capital:"Kathmandu" },
-  { flag:"🇱🇰", country:"Sri Lanka", capital:"Sri Jayawardenepura Kotte" },
-  { flag:"🇲🇻", country:"Maldives", capital:"Malé" },
-  { flag:"🇧🇹", country:"Bhutan", capital:"Thimphu" },
-  { flag:"🇲🇲", country:"Myanmar", capital:"Naypyidaw" },
-  { flag:"🇹🇭", country:"Thailand", capital:"Bangkok" },
-  { flag:"🇻🇳", country:"Vietnam", capital:"Hanoi" },
-  { flag:"🇰🇭", country:"Cambodia", capital:"Phnom Penh" },
-  { flag:"🇱🇦", country:"Laos", capital:"Vientiane" },
-  { flag:"🇲🇾", country:"Malaysia", capital:"Kuala Lumpur" },
-  { flag:"🇸🇬", country:"Singapore", capital:"Singapore" },
-  { flag:"🇵🇭", country:"Philippines", capital:"Manila" },
-  { flag:"🇮🇩", country:"Indonesia", capital:"Jakarta" },
-  { flag:"🇧🇳", country:"Brunei", capital:"Bandar Seri Begawan" },
-  { flag:"🇰🇿", country:"Kazakhstan", capital:"Astana" },
-  { flag:"🇺🇿", country:"Uzbekistan", capital:"Tashkent" },
-  { flag:"🇹🇲", country:"Turkmenistan", capital:"Ashgabat" },
-  { flag:"🇹🇯", country:"Tajikistan", capital:"Dushanbe" },
-  { flag:"🇰🇬", country:"Kyrgyzstan", capital:"Bishkek" },
-  { flag:"🇦🇿", country:"Azerbaijan", capital:"Baku" },
-  { flag:"🇦🇲", country:"Armenia", capital:"Yerevan" },
-  { flag:"🇬🇪", country:"Georgia", capital:"Tbilisi" },
-  { flag:"🇹🇷", country:"Turkey", capital:"Ankara" },
-  { flag:"🇮🇷", country:"Iran", capital:"Tehran" },
-  { flag:"🇮🇶", country:"Iraq", capital:"Baghdad" },
-  { flag:"🇸🇦", country:"Saudi Arabia", capital:"Riyadh" },
-  { flag:"🇦🇪", country:"United Arab Emirates", capital:"Abu Dhabi" },
-  { flag:"🇶🇦", country:"Qatar", capital:"Doha" },
-  { flag:"🇰🇼", country:"Kuwait", capital:"Kuwait City" },
-  { flag:"🇧🇭", country:"Bahrain", capital:"Manama" },
-  { flag:"🇴🇲", country:"Oman", capital:"Muscat" },
-  { flag:"🇾🇪", country:"Yemen", capital:"Sana'a" },
-  { flag:"🇯🇴", country:"Jordan", capital:"Amman" },
-  { flag:"🇱🇧", country:"Lebanon", capital:"Beirut" },
-  { flag:"🇮🇱", country:"Israel", capital:"Jerusalem" },
-  { flag:"🇦🇫", country:"Afghanistan", capital:"Kabul" },
-  { flag:"🇲🇳", country:"Mongolia", capital:"Ulaanbaatar" },
+  function getLocalBest(name) {
+    try { return JSON.parse(localStorage.getItem('fcBest') || '{}')[name.toLowerCase()] || 0; } catch(e) { return 0; }
+  }
+  function setLocalBest(name, s) {
+    try {
+      const d = JSON.parse(localStorage.getItem('fcBest') || '{}');
+      if (s > (d[name.toLowerCase()] || 0)) { d[name.toLowerCase()] = s; localStorage.setItem('fcBest', JSON.stringify(d)); }
+    } catch(e) {}
+  }
 
-  // Africa
-  { flag:"🇳🇬", country:"Nigeria", capital:"Abuja" },
-  { flag:"🇪🇬", country:"Egypt", capital:"Cairo" },
-  { flag:"🇿🇦", country:"South Africa", capital:"Pretoria" },
-  { flag:"🇰🇪", country:"Kenya", capital:"Nairobi" },
-  { flag:"🇪🇹", country:"Ethiopia", capital:"Addis Ababa" },
-  { flag:"🇹🇿", country:"Tanzania", capital:"Dodoma" },
-  { flag:"🇺🇬", country:"Uganda", capital:"Kampala" },
-  { flag:"🇬🇭", country:"Ghana", capital:"Accra" },
-  { flag:"🇨🇮", country:"Ivory Coast", capital:"Yamoussoukro" },
-  { flag:"🇸🇳", country:"Senegal", capital:"Dakar" },
-  { flag:"🇲🇦", country:"Morocco", capital:"Rabat" },
-  { flag:"🇹🇳", country:"Tunisia", capital:"Tunis" },
-  { flag:"🇩🇿", country:"Algeria", capital:"Algiers" },
-  { flag:"🇱🇾", country:"Libya", capital:"Tripoli" },
-  { flag:"🇸🇩", country:"Sudan", capital:"Khartoum" },
-  { flag:"🇲🇿", country:"Mozambique", capital:"Maputo" },
-  { flag:"🇿🇲", country:"Zambia", capital:"Lusaka" },
-  { flag:"🇿🇼", country:"Zimbabwe", capital:"Harare" },
-  { flag:"🇦🇴", country:"Angola", capital:"Luanda" },
-  { flag:"🇨🇲", country:"Cameroon", capital:"Yaoundé" },
-  { flag:"🇷🇼", country:"Rwanda", capital:"Kigali" },
+  async function sbFetch(path, opts = {}) {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, { headers: HEADERS, ...opts });
+    const text = await res.text();
+    if (!res.ok) throw new Error(text);
+    return text ? JSON.parse(text) : null;
+  }
 
-  // Oceania
-  { flag:"🇦🇺", country:"Australia", capital:"Canberra" },
-  { flag:"🇳🇿", country:"New Zealand", capital:"Wellington" },
-  { flag:"🇫🇯", country:"Fiji", capital:"Suva" },
-  { flag:"🇵🇬", country:"Papua New Guinea", capital:"Port Moresby" },
-];
+  async function fetchLeaderboard() {
+    return await sbFetch('leaderboard?select=name,best,total,updated_at&order=best.desc,updated_at.asc&limit=20');
+  }
 
-let playerName = '';
-let mode = 'capital';
-let queue = [], current = null;
-let score = 0, qIndex = 0;
-let answered = false;
-let myBest = 0;
-
-// ── Storage helpers (localStorage for personal best, artifact storage for shared leaderboard) ──
-function getLocalBest(name) {
-  try {
-    const data = JSON.parse(localStorage.getItem('fcPersonalBest') || '{}');
-    return data[name.toLowerCase()] || 0;
-  } catch(e) { return 0; }
-}
-function setLocalBest(name, score) {
-  try {
-    const data = JSON.parse(localStorage.getItem('fcPersonalBest') || '{}');
-    if (score > (data[name.toLowerCase()] || 0)) data[name.toLowerCase()] = score;
-    localStorage.setItem('fcPersonalBest', JSON.stringify(data));
-  } catch(e) {}
-}
-
-// ── Shared leaderboard via artifact storage API ──
-async function fetchLeaderboard() {
-  try {
-    const result = await window.storage.list('lb:');
-    if (!result || !result.keys || result.keys.length === 0) return [];
-    const entries = [];
-    for (const key of result.keys) {
-      try {
-        const r = await window.storage.get(key, true);
-        if (r) entries.push(JSON.parse(r.value));
-      } catch(e) {}
+  async function submitScore(name, s) {
+    const existing = await sbFetch('leaderboard?select=id,best&name=eq.' + encodeURIComponent(name));
+    if (existing && existing.length > 0) {
+      if (s > existing[0].best) {
+        await sbFetch('leaderboard?id=eq.' + existing[0].id, {
+          method: 'PATCH',
+          body: JSON.stringify({ best: s, updated_at: new Date().toISOString() })
+        });
+      }
+    } else {
+      await sbFetch('leaderboard', {
+        method: 'POST',
+        body: JSON.stringify({ name, best: s, total: TOTAL })
+      });
     }
-    entries.sort((a, b) => b.best - a.best || a.name.localeCompare(b.name));
-    return entries;
-  } catch(e) { return null; }
-}
+  }
 
-async function submitScore(name, score) {
-  const key = 'lb:' + name.toLowerCase().replace(/[^a-z0-9]/g, '_');
-  try {
-    let existing = null;
-    try { const r = await window.storage.get(key, true); if (r) existing = JSON.parse(r.value); } catch(e) {}
-    if (!existing || score > existing.best) {
-      await window.storage.set(key, JSON.stringify({
-        name: name,
-        best: score,
-        total: TOTAL,
-        date: new Date().toLocaleDateString()
-      }), true);
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  const nameInput = document.getElementById('name-input');
+  const startBtn  = document.getElementById('start-btn');
+  nameInput.addEventListener('input', () => { startBtn.disabled = nameInput.value.trim().length < 1; });
+  nameInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !startBtn.disabled) beginGame(); });
+
+  function beginGame() {
+    playerName = nameInput.value.trim();
+    if (!playerName) return;
+    document.getElementById('player-tag').textContent = '👤 ' + playerName;
+    document.getElementById('best').textContent = getLocalBest(playerName);
+    showScreen('screen-quiz');
+    startGame();
+  }
+  function changePlayer() { nameInput.value = ''; startBtn.disabled = true; showScreen('screen-name'); }
+  function playAgain()    { showScreen('screen-quiz'); startGame(); }
+
+  function setMode(m) {
+    mode = m;
+    document.getElementById('mode-capital').classList.toggle('active', m === 'capital');
+    document.getElementById('mode-country').classList.toggle('active', m === 'country');
+    startGame();
+  }
+
+  function shuffle(arr) {
+    let a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+
+  function startGame() {
+    score = 0; qIndex = 0;
+    document.getElementById('score').textContent = 0;
+    document.getElementById('best').textContent = getLocalBest(playerName);
+    document.getElementById('progress-bar').style.width = '0%';
+    queue = shuffle(data).slice(0, TOTAL);
+    nextQuestion();
+  }
+
+  function nextQuestion() {
+    if (qIndex >= queue.length) { showEnd(); return; }
+    current = queue[qIndex];
+    answered = false;
+    const pool = data.filter(d => d !== current);
+    const opts = shuffle([current, ...shuffle(pool).slice(0, 3)]);
+    const isCapital = mode === 'capital';
+    const correct   = isCapital ? current.capital : current.country;
+    document.getElementById('progress-bar').style.width = Math.round((qIndex / TOTAL) * 100) + '%';
+
+    let html = `<div class="card">
+      <div class="q-num">Question ${qIndex + 1} of ${TOTAL}</div>
+      <span class="flag-display">${current.flag}</span>
+      <div class="country-name">${isCapital ? current.country : '???'}</div>
+      <div class="question-text">${isCapital ? 'What is the capital city?' : 'Which country does this flag belong to?'}</div>
+      <div class="options">`;
+    opts.forEach((o, i) => {
+      const label = isCapital ? o.capital : o.country;
+      const s = label.replace(/'/g, "\\'"), c = correct.replace(/'/g, "\\'");
+      html += `<button class="opt-btn" id="opt${i}" onclick="pick(this,'${s}','${c}')">${label}</button>`;
+    });
+    html += `</div>
+      <div class="feedback-wrap"><span class="feedback" id="feedback" style="display:none"></span></div>
+      <div class="next-btn-wrap">
+        <button class="btn btn-primary" id="next-btn" style="display:none" onclick="advance()">${qIndex + 1 < TOTAL ? 'Next flag ➜' : 'See results!'}</button>
+      </div>
+    </div>`;
+    document.getElementById('quiz-area').innerHTML = html;
+  }
+
+  function pick(btn, chosen, correct) {
+    if (answered) return;
+    answered = true;
+    document.querySelectorAll('.opt-btn').forEach(b => { b.disabled = true; if (b.textContent.trim() === correct) b.classList.add('correct'); });
+    const fb = document.getElementById('feedback');
+    fb.style.display = 'inline-block';
+    if (chosen === correct) {
+      btn.classList.add('correct'); score++;
+      document.getElementById('score').textContent = score;
+      fb.textContent = '✓ Correct! Well done!'; fb.className = 'feedback ok';
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = mode === 'country' ? `✗ That's ${current.country}! Capital: ${current.capital}.` : `✗ The capital of ${current.country} is ${correct}.`;
+      fb.className = 'feedback no';
     }
-  } catch(e) {}
-}
-
-// ── UI helpers ──
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
-}
-
-const nameInput = document.getElementById('name-input');
-const startBtn  = document.getElementById('start-btn');
-nameInput.addEventListener('input', () => { startBtn.disabled = nameInput.value.trim().length < 1; });
-nameInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !startBtn.disabled) beginGame(); });
-
-function beginGame() {
-  playerName = nameInput.value.trim();
-  if (!playerName) return;
-  myBest = getLocalBest(playerName);
-  document.getElementById('player-tag').textContent = '👤 ' + playerName;
-  document.getElementById('best').textContent = myBest;
-  showScreen('screen-quiz');
-  startGame();
-}
-function changePlayer() { nameInput.value = ''; startBtn.disabled = true; showScreen('screen-name'); }
-function playAgain() { showScreen('screen-quiz'); startGame(); }
-
-function setMode(m) {
-  mode = m;
-  document.getElementById('mode-capital').classList.toggle('active', m === 'capital');
-  document.getElementById('mode-country').classList.toggle('active', m === 'country');
-  startGame();
-}
-
-function shuffle(arr) {
-  let a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    document.getElementById('next-btn').style.display = 'inline-block';
   }
-  return a;
-}
 
-function startGame() {
-  score = 0; qIndex = 0;
-  document.getElementById('score').textContent = 0;
-  myBest = getLocalBest(playerName);
-  document.getElementById('best').textContent = myBest;
-  document.getElementById('progress-bar').style.width = '0%';
-  queue = shuffle(data).slice(0, TOTAL);
-  nextQuestion();
-}
+  function advance() { qIndex++; nextQuestion(); }
 
-function nextQuestion() {
-  if (qIndex >= queue.length) { showEnd(); return; }
-  current = queue[qIndex];
-  answered = false;
-  const pool = data.filter(d => d !== current);
-  const wrong = shuffle(pool).slice(0, 3);
-  const opts  = shuffle([current, ...wrong]);
-  const isCapital = mode === 'capital';
-  const correct   = isCapital ? current.capital : current.country;
-  const pct = Math.round((qIndex / TOTAL) * 100);
-  document.getElementById('progress-bar').style.width = pct + '%';
-
-  let html = `<div class="card">
-    <div class="q-num">Question ${qIndex + 1} of ${TOTAL}</div>
-    <span class="flag-display">${current.flag}</span>
-    <div class="country-name">${isCapital ? current.country : '???'}</div>
-    <div class="question-text">${isCapital ? 'What is the capital city?' : 'Which country does this flag belong to?'}</div>
-    <div class="options">`;
-  opts.forEach((o, i) => {
-    const label = isCapital ? o.capital : o.country;
-    const s = label.replace(/'/g, "\\'");
-    const c = correct.replace(/'/g, "\\'");
-    html += `<button class="opt-btn" id="opt${i}" onclick="pick(this,'${s}','${c}')">${label}</button>`;
-  });
-  html += `</div>
-    <div class="feedback-wrap"><span class="feedback" id="feedback" style="display:none"></span></div>
-    <div class="next-btn-wrap">
-      <button class="btn btn-primary" id="next-btn" style="display:none" onclick="advance()">${qIndex + 1 < TOTAL ? 'Next flag ➜' : 'See results!'}</button>
-    </div>
-  </div>`;
-  document.getElementById('quiz-area').innerHTML = html;
-}
-
-function pick(btn, chosen, correct) {
-  if (answered) return;
-  answered = true;
-  document.querySelectorAll('.opt-btn').forEach(b => {
-    b.disabled = true;
-    if (b.textContent.trim() === correct) b.classList.add('correct');
-  });
-  const fb = document.getElementById('feedback');
-  fb.style.display = 'inline-block';
-  if (chosen === correct) {
-    btn.classList.add('correct');
-    score++;
-    document.getElementById('score').textContent = score;
-    fb.textContent = '✓ Correct! Well done!';
-    fb.className = 'feedback ok';
-  } else {
-    btn.classList.add('wrong');
-    fb.textContent = mode === 'country'
-      ? `✗ That's ${current.country}! Capital: ${current.capital}.`
-      : `✗ The capital of ${current.country} is ${correct}.`;
-    fb.className = 'feedback no';
+  async function showEnd() {
+    document.getElementById('progress-bar').style.width = '100%';
+    if (score > getLocalBest(playerName)) setLocalBest(playerName, score);
+    document.getElementById('best').textContent = getLocalBest(playerName);
+    const pct   = Math.round((score / TOTAL) * 100);
+    const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '⭐' : pct >= 40 ? '🌍' : '📚';
+    const msg   = pct >= 80 ? 'You are a geography star! Amazing!' : pct >= 60 ? 'Great job! Keep exploring!' : pct >= 40 ? 'Good effort! Practice makes perfect!' : 'Keep learning — the world awaits!';
+    document.getElementById('end-card').innerHTML = `
+      <span class="end-emoji">${emoji}</span>
+      <div class="end-title">${playerName}, you scored ${score} / ${TOTAL}!</div>
+      <div class="end-sub">${msg}</div>`;
+    showScreen('screen-end');
+    document.getElementById('lb-content').innerHTML = '<div class="lb-status">Saving your score...</div>';
+    try { await submitScore(playerName, score); } catch(e) { console.error('Submit error:', e); }
+    try {
+      const lb = await fetchLeaderboard();
+      renderLeaderboard(lb);
+    } catch(e) {
+      document.getElementById('lb-content').innerHTML = '<div class="lb-status error">Could not load leaderboard. Check your Supabase RLS policies.</div>';
+    }
   }
-  document.getElementById('next-btn').style.display = 'inline-block';
-}
 
-function advance() { qIndex++; nextQuestion(); }
-
-async function showEnd() {
-  document.getElementById('progress-bar').style.width = '100%';
-  if (score > myBest) { myBest = score; setLocalBest(playerName, score); }
-  document.getElementById('best').textContent = myBest;
-
-  const pct   = Math.round((score / TOTAL) * 100);
-  const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '⭐' : pct >= 40 ? '🌍' : '📚';
-  const msg   = pct >= 80 ? 'You are a geography star! Amazing!'
-              : pct >= 60 ? 'Great job! Keep exploring!'
-              : pct >= 40 ? 'Good effort! Practice makes perfect!'
-              : 'Keep learning — the world awaits!';
-
-  document.getElementById('end-card').innerHTML = `
-    <span class="end-emoji">${emoji}</span>
-    <div class="end-title">${playerName}, you scored ${score} / ${TOTAL}!</div>
-    <div class="end-sub">${msg}</div>`;
-
-  showScreen('screen-end');
-  document.getElementById('lb-content').innerHTML = '<div class="lb-loading">Saving score & loading leaderboard...</div>';
-
-  await submitScore(playerName, score);
-  const lb = await fetchLeaderboard();
-  renderLeaderboard(lb);
-}
-
-function renderLeaderboard(lb) {
-  if (lb === null) {
-    document.getElementById('lb-content').innerHTML = '<div class="lb-error">Could not load leaderboard. Scores are saved — check back later!</div>';
-    return;
+  function renderLeaderboard(lb) {
+    if (!lb || lb.length === 0) {
+      document.getElementById('lb-content').innerHTML = '<div class="lb-status" style="color:#16a34a">You are the first player! 🎉</div>';
+      return;
+    }
+    const myRank = lb.findIndex(e => e.name.toLowerCase() === playerName.toLowerCase()) + 1;
+    const rows = lb.map((e, i) => {
+      const rank = i + 1, cls = rank <= 3 ? `rank-${rank}` : 'rank-n';
+      const isMe = e.name.toLowerCase() === playerName.toLowerCase();
+      const date = e.updated_at ? new Date(e.updated_at).toLocaleDateString() : '';
+      return `<tr class="${isMe ? 'highlight' : ''}">
+        <td><span class="rank-badge ${cls}">${rank}</span></td>
+        <td>${e.name}${isMe ? ' 👈' : ''}</td>
+        <td style="text-align:right">${e.best} / ${e.total || TOTAL}</td>
+        <td style="text-align:right;color:#94a3b8;font-size:12px">${date}</td>
+      </tr>`;
+    }).join('');
+    document.getElementById('lb-content').innerHTML = `
+      <table class="lb-table">
+        <thead><tr><th></th><th>Player</th><th style="text-align:right">Best</th><th style="text-align:right">Date</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      ${myRank > 20 ? `<p style="font-size:13px;color:#94a3b8;text-align:center;padding-top:0.75rem;font-weight:600">Your rank: #${myRank}</p>` : ''}`;
   }
-  if (lb.length === 0) {
-    document.getElementById('lb-content').innerHTML = '<div class="lb-loading" style="color:#16a34a">You are the first player! 🎉</div>';
-    return;
-  }
-  const myRank = lb.findIndex(e => e.name.toLowerCase() === playerName.toLowerCase()) + 1;
-  const top = lb.slice(0, 15);
-  const rows = top.map((e, i) => {
-    const rank  = i + 1;
-    const cls   = rank <= 3 ? `rank-${rank}` : 'rank-n';
-    const isMe  = e.name.toLowerCase() === playerName.toLowerCase();
-    return `<tr class="${isMe ? 'highlight' : ''}">
-      <td><span class="rank-badge ${cls}">${rank}</span></td>
-      <td>${e.name}${isMe ? ' 👈' : ''}</td>
-      <td style="text-align:right">${e.best} / ${e.total || TOTAL}</td>
-      <td style="text-align:right;color:#94a3b8;font-size:12px">${e.date}</td>
-    </tr>`;
-  }).join('');
-
-  document.getElementById('lb-content').innerHTML = `
-    <table class="lb-table">
-      <thead><tr><th></th><th>Player</th><th style="text-align:right">Best</th><th style="text-align:right">Date</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-    ${myRank > 15 ? `<p style="font-size:13px;color:#94a3b8;text-align:center;padding-top:0.75rem;font-weight:600">Your rank: #${myRank}</p>` : ''}`;
-}
 </script>
 </body>
 </html>
